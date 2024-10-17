@@ -11,8 +11,14 @@ const LoginForm: React.FC = () => {
       <div id="title-container">
         <h1 id="login-title">Iniciar Sesion</h1>
       </div>
+      <div id="info-container">
+        <p>
+          Debes ingresar tu email y password para acceder al sistema
+        </p>
+      </div>
       <div id="form-container">
-        <Formik initialValues={{ email: "", password: "" }}
+        <Formik
+          initialValues={{ email: "", password: "" }}
           validationSchema={loginSchema}
           onSubmit={(values, { setSubmitting }) => {
             login(values);
@@ -21,21 +27,42 @@ const LoginForm: React.FC = () => {
         >
           {({ isSubmitting }) => (
             <Form>
-              <div>
-                <Field name="email" type="email" placeholder="Email" />
-                <ErrorMessage name="email" component={"div"}/>
-              </div>
-              <div>
-                <Field name="password" type="password" placeholder="Contraseña" />
-                <ErrorMessage name="password" component={"div"}/>
+              <div id="fields-container">
+                <div className="field-container">
+                  <span>Email</span>
+                  <div>
+                    <Field
+                      className="field-style"
+                      name="email"
+                      type="email"
+                      placeholder="Email"
+                    />
+                    <ErrorMessage name="email" component={"div"} />
+                  </div>
+                </div>
+                <div>
+                  <div className="field-container">
+                    <span>Password</span>
+                    <div>
+                      <Field
+                        className="field-style"
+                        name="password"
+                        type="password"
+                        placeholder="Contraseña"
+                      />
+                      <ErrorMessage name="password" component={"div"} />
+                    </div>
+                  </div>
+                </div>
               </div>
               <button type="submit" disabled={isSubmitting}>
-                Iniciar Sesion
+                {isSubmitting ? "Autenticando..." : "Iniciar Sesion"}
               </button>
             </Form>
           )}
         </Formik>
       </div>
+      <div id="link-container">Olvide mi password</div>
     </div>
   );
 };
