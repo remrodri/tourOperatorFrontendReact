@@ -1,4 +1,4 @@
-#main-container{
+.main-container{
 /* From https://css.glass */
 background: rgba(142, 142, 142, 0.1);
 border-radius: 1rem;
@@ -11,33 +11,33 @@ width: 30rem;
 height: 40rem;
 }
 
-#title-container{
+.title-container{
   height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#info-container{
+.info-container{
   height: 12%;
   padding: 0 3rem;
   text-align: center;
 }
 
-#form-container{
+.form-container{
   width: 100%;
   height: 58%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#form-container Form{
+.form-container Form{
   width: 100%;
   display: flex;
   gap:3rem;
   flex-direction: column;
   align-items: center;
 }
-#form-container span{
+.form-container span{
   font-size: 1.3rem;
 }
 
@@ -54,19 +54,19 @@ height: 40rem;
   border: none;
   border-radius: 0.5rem;
 }
-#form-container button{
+.form-container button{
   height: 3rem;
   width: 25rem;
   border: none;
   border-radius: 0.5rem;
-  font-family: "Poppins","sans-serif";
+  font-family: "Poppins",sans-serif;
   background-color: #006ea9;
   color: azure;
 }
-#form-container button:hover{
+.form-container button:hover{
   background-color: #24acf2;
 }
-#link-container{
+.link-container{
   height: 10%;
   padding: 1rem 0 0 2.5rem;
 }

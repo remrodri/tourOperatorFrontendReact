@@ -1,0 +1,83 @@
+.security-questions-form {
+  /* From https://css.glass */
+  background: rgba(142, 142, 142, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.205);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(204, 204, 204, 0.27);
+
+  width: 30rem;
+  height: 43rem;
+}
+.security-questions-form-title-container {
+  height: 15%;
+}
+.security-questions-form-title {
+  /* height: 20%; */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.security-questions-form-info {
+  height: 12%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.security-questions-form-container {
+  height: 73%;
+}
+.security-questions-form-container form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 1.1rem;
+  padding: 0 1.7rem;
+}
+
+.security-questions-form-container form div {
+  height: 6rem;
+}
+
+.security-questions-form-container form input {
+  width: 100%;
+  height: 2.6rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding-left: 0.6rem;
+}
+
+.security-questions-form-container form label {
+  font-size: 1.2rem;
+}
+
+.security-questions-form-button-container {
+  width: 100%;
+  padding-top: 2rem;
+}
+.security-questions-form-container button {
+  height: 3rem;
+  width: 100%;
+  /* border: none; */
+  border-radius: 0.5rem;
+  /* font-family: "Poppins", sans-serif; */
+
+  font-size: 1.1rem;
+  font-weight: 400;
+
+  /* background-color: #006ea9; */
+  /* color: azure; */
+  /* margin-top: 1rem; */
+}
+
+/* .security-questions-form-container button:hover {
+  background-color: #24acf2;
+} */

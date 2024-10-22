@@ -76,8 +76,12 @@ button:focus-visible {
 html,
 body{
   font-family: 'Poppins', sans-serif;
-  
   line-height: 1.5;
   font-size: 10px;
   height: 100dvh;
+  background-image: url(./assets/images/login.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fafafa;
 }
