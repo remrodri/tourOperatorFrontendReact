@@ -18,8 +18,8 @@ export const useLogin = () => {
       console.log('response::: ', response);
       const token = response.token;
       TokenService.saveToken(token);
-      if (response.user.firstLogin === true) {
-        navigate("/first-login");
+      if (response.user.firstLogin) {
+        navigate(`/first-login/${response.user.id}`);
       }
       await AuthService.login(values);
       //manejar el redireccionamiento o estado de login exitoso

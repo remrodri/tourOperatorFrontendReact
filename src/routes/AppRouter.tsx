@@ -1,8 +1,6 @@
-
-import { createBrowserRouter, Navigate } from 'react-router-dom';
-import LoginPage from '../features/auth/pages/LoginPage';
-import FirstLoginPage from '../features/auth/pages/FirstLoginPage';
-
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import LoginPage from "../pages/LoginPage";
+import SecurityQuestionsPage from "../pages/SecurityQuestionsPage";
 
 export const AppRouter = createBrowserRouter([
   {
@@ -14,7 +12,7 @@ export const AppRouter = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: "/first-login",
-    element:<FirstLoginPage/>
-  }
+    path: "/first-login/:userId",
+    element: <SecurityQuestionsPage />,
+  },
 ]);

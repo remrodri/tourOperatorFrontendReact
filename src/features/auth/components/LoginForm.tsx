@@ -7,16 +7,16 @@ const LoginForm: React.FC = () => {
   const { login } = useLogin();
 
   return (
-    <div id="main-container">
-      <div id="title-container">
-        <h1 id="login-title">Iniciar Sesion</h1>
+    <div className="main-container">
+      <div className="title-container">
+        <h1 className="login-title">Iniciar Sesion</h1>
       </div>
-      <div id="info-container">
+      <div className="info-container">
         <p>
           Debes ingresar tu email y password para acceder al sistema
         </p>
       </div>
-      <div id="form-container">
+      <div className="form-container">
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={loginSchema}
@@ -27,7 +27,7 @@ const LoginForm: React.FC = () => {
         >
           {({ isSubmitting }) => (
             <Form>
-              <div id="fields-container">
+              <div className="fields-container">
                 <div className="field-container">
                   <span>Email</span>
                   <div>
@@ -62,7 +62,7 @@ const LoginForm: React.FC = () => {
           )}
         </Formik>
       </div>
-      <div id="link-container">Olvide mi password</div>
+      <div className="link-container">Olvide mi password</div>
     </div>
   );
 };

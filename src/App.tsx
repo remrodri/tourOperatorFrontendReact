@@ -1,15 +1,25 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css'
-import { RouterProvider } from 'react-router-dom'
-import { AppRouter } from './routes/AppRouter'
+import "./App.css";
+import { RouterProvider } from "react-router-dom";
+import { AppRouter } from "./routes/AppRouter";
+import { createTheme, ThemeProvider } from "@mui/material";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: 'Poppins,sans-serif',
+  },
+});
 
 function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <RouterProvider router={AppRouter}/>
+    <ThemeProvider theme={theme}>
+
+      <RouterProvider router={AppRouter} />
+    </ThemeProvider>
     // <>
     //   <div>
     //     <a href="https://vitejs.dev" target="_blank">
@@ -32,7 +42,7 @@ function App() {
     //     Click on the Vite and React logos to learn more
     //   </p>
     // </>
-  )
+  );
 }
 
-export default App
+export default App;
