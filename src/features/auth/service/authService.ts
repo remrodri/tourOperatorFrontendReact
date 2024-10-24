@@ -17,6 +17,9 @@ interface LoginResponse {
   };
   token: string;
 }
+interface UpdatePasswordResponse {
+  message: string;
+}
 
 export const AuthService = {
   login: async (data: LoginRequest): Promise<LoginResponse> => {
@@ -26,7 +29,7 @@ export const AuthService = {
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
         if (error.status === 401) {
-          showToast("error","Credenciales incorrectas")
+          showToast("error", "Credenciales incorrectas");
         }
         if (error.code === "ERR_NETWORK") {
           showToast("error", "Error interno del servidor");
@@ -42,5 +45,21 @@ export const AuthService = {
     // const token = response.data.token;
     // console.log('token::: ', token);
     // return {user, token};
+  },
+
+  updatePassword: async (
+    userId: string,
+    newPassword: string,
+    token: string
+  ): Promise<UpdatePasswordResponse> => {
+    const response = await axiosInstance.post(
+      "/users/update-password",
+      { userId: userId, password: newPassword },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    console.log("response::: ", response);
+    return { message: "Password actualizado correctamente" };
   },
 };

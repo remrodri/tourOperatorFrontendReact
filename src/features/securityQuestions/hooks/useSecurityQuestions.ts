@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { SecurityQuestionsService } from "../service/securityQuestionsService";
 import { AnyObject } from "yup";
 import { showToast } from "../../../shared/toast";
+import { useNavigate } from "react-router-dom";
 
 interface UseSecurityQuestionsProps {
   userId: string;
@@ -35,6 +36,8 @@ export const useSecurityQuestions = ({
     fetchQuestions();
   }, [userId, token]);
 
+  const navigate = useNavigate();
+
   const submitAnswers = async (
     answers: { answerId: string; answerText: string }[]
   ) => {
@@ -48,7 +51,8 @@ export const useSecurityQuestions = ({
       // console.log("response::: ", response);
       // return {response}
       // return { statusCode: response.statusCode, message: response.message };
-      showToast("success","Respuestas registradas satisfactoriamente")
+      showToast("success", "Respuestas registradas satisfactoriamente")
+      navigate(`/first-login/password/${userId}`);
 
     } catch (err: unknown) {
       if (err instanceof Error) {
