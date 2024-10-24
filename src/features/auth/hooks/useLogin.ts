@@ -15,11 +15,15 @@ export const useLogin = () => {
   const login = async (values: LoginValues) => {
     try {
       const response = await AuthService.login(values);
-      console.log('response::: ', response);
+      // console.log('response::: ', response);
+      const userId = response.user.id
       const token = response.token;
       TokenService.saveToken(token);
       if (response.user.firstLogin) {
         navigate(`/first-login/${response.user.id}`);
+      }
+      if (response.user.role==="administrador") {
+        navigate(`/home/${userId}`)
       }
       await AuthService.login(values);
       //manejar el redireccionamiento o estado de login exitoso
@@ -31,5 +35,6 @@ export const useLogin = () => {
       }
     }
   };
+
   return { login, error };
 };
