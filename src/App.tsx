@@ -5,10 +5,11 @@ import "./App.css";
 import { RouterProvider } from "react-router-dom";
 import { AppRouter } from "./routes/AppRouter";
 import { createTheme, ThemeProvider } from "@mui/material";
+import { AuthProvider } from "./context/AuthContext";
 
 const theme = createTheme({
   typography: {
-    fontFamily: 'Poppins,sans-serif',
+    fontFamily: "Poppins,sans-serif",
   },
 });
 
@@ -17,8 +18,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-
-      <RouterProvider router={AppRouter} />
+      <AuthProvider>
+        <RouterProvider router={AppRouter} />
+      </AuthProvider>
     </ThemeProvider>
     // <>
     //   <div>

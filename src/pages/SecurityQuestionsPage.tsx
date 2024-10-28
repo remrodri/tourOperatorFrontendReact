@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { SecurityQuestionsForm } from "../features/securityQuestions/components/SecurityQuestionsForm";
-import "./styles/securityQuestionsPage.css"
+import "./style/securityQuestionsPage.css"
 
 const SecurityQuestionsPage: React.FC = () => {
   const { userId } = useParams();

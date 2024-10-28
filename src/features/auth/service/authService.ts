@@ -24,7 +24,7 @@ interface UpdatePasswordResponse {
 export const AuthService = {
   login: async (data: LoginRequest): Promise<LoginResponse> => {
     try {
-      const response = await axiosInstance.post("/auth/login", data);
+      const response = await axiosInstance.post("/auth/login", data,{withCredentials:true});
       return response.data.data;
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
