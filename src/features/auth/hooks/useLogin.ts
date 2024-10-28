@@ -15,15 +15,16 @@ export const useLogin = () => {
   const login = async (values: LoginValues) => {
     try {
       const response = await AuthService.login(values);
-      // console.log('response::: ', response);
-      const userId = response.user.id
+      console.log("response::: ", response);
+      const userId = response.user.id;
       const token = response.token;
       TokenService.saveToken(token);
+      localStorage.setItem("role", response.user.role);
       if (response.user.firstLogin) {
         navigate(`/first-login/${response.user.id}`);
       }
-      if (response.user.role==="administrador") {
-        navigate(`/home/${userId}`)
+      if (response.user.role === "administrador") {
+        navigate(`/home/${userId}`);
       }
       await AuthService.login(values);
       //manejar el redireccionamiento o estado de login exitoso
