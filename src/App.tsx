@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router-dom";
 import { AppRouter } from "./routes/AppRouter";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { AuthProvider } from "./context/AuthContext";
+import { UserProvider } from "./features/personal/context/UserContext";
 
 const theme = createTheme({
   typography: {
@@ -18,9 +19,11 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AuthProvider>
-        <RouterProvider router={AppRouter} />
-      </AuthProvider>
+        <AuthProvider>
+      <UserProvider>
+          <RouterProvider router={AppRouter} />
+      </UserProvider>
+        </AuthProvider>
     </ThemeProvider>
     // <>
     //   <div>

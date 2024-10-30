@@ -21,6 +21,7 @@ import type { Navigation } from "@toolpad/core";
 import { Outlet, useLocation, useParams } from "react-router-dom";
 import login from "../../assets/images/login.webp";
 import imgPersonal from "../../assets/images/personalBackground.webp";
+import newUserBackground from "../../assets/images/newUserBackground.webp";
 import { useEffect, useState } from "react";
 
 const BRANDING = {
@@ -96,12 +97,14 @@ export default function MainLayout() {
   const backgroundImgs = {
     [`/${mainRoute}/personal/showcase`]: imgPersonal,
     [`/${mainRoute}/personal`]: login,
-  }
+    [`/${mainRoute}/personal/new`]: newUserBackground,
+  };
 
   useEffect(() => {
     setBackgroundImg(backgroundImgs[location.pathname] || imgPersonal);
     setBackgroundImg(backgroundImgs[location.pathname] || login);
-  },[location.pathname])
+    setBackgroundImg(backgroundImgs[location.pathname] || newUserBackground);
+  }, [location.pathname]);
 
   const NAVIGATION: Navigation = [
     {
@@ -110,16 +113,16 @@ export default function MainLayout() {
     },
     {
       segment: `${mainRoute}/personal`,
-      title: "personal",
+      title: "Gestion de usuarios",
       icon: <DashboardIcon />,
       children: [
         {
           segment: "showcase",
-          title: "showcase",
+          title: "Todos los usuarios",
         },
         {
           segment: "new",
-          title: "nuevo",
+          title: "Nuevo Usuario",
         },
       ],
     },
@@ -137,11 +140,13 @@ export default function MainLayout() {
       theme={demoTheme}
       branding={BRANDING}
     >
-      <div style={{
-        backgroundImage: `url(${backgroundImg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}>
+      <div
+        style={{
+          backgroundImage: `url(${backgroundImg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <Outlet />
       </div>
       {/* <DashboardLayout

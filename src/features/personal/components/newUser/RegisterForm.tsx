@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 // import "./newPersonal.css";
 // import img from "../../../assets/images/personalBackground.webp";
 
-export default function NewPersonal() {
+export default function RegisterForm() {
   return (
     <Box
       sx={{

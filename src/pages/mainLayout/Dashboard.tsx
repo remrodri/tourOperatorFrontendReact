@@ -46,7 +46,7 @@ export default function Layout() {
             boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
             backdropFilter: "blur(5px)",
             border: "1px solid rgba(4, 4, 4, 0.3)",
-            padding: "0 0 0 1rem",
+            padding: "0 0 1rem 0rem",
           },
           // "MuiStack-root css-lhpdre-MuiStack-root": {
           //   background: "rgba(138, 138, 138, 0.2)",
