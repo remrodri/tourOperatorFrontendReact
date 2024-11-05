@@ -31,11 +31,11 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <AuthProvider>
-        <UserProvider>
-          <RoleProvider>
+        <RoleProvider>
+          <UserProvider>
             <RouterProvider router={AppRouter} />
-          </RoleProvider>
-        </UserProvider>
+          </UserProvider>
+        </RoleProvider>
       </AuthProvider>
     </ThemeProvider>
     // <>

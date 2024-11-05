@@ -5,7 +5,6 @@
 // import Tooltip from "@mui/material/Tooltip";
 // import Typography from "@mui/material/Typography";
 import { createTheme } from "@mui/material/styles";
-import DashboardIcon from "@mui/icons-material/Dashboard";
 // import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 // import SearchIcon from "@mui/icons-material/Search";
 // import { AppProvider, type Navigation } from "@toolpad/core/AppProvider";
@@ -23,9 +22,12 @@ import login from "../../assets/images/login.webp";
 import imgPersonal from "../../assets/images/personalBackground.webp";
 import newUserBackground from "../../assets/images/newUserBackground.webp";
 import { useEffect, useState } from "react";
+import { Group, PersonAdd, SupervisedUserCircle } from "@mui/icons-material";
+import icon from "../../assets/images/appIcon.png"
 
 const BRANDING = {
-  title: "Uso de Toolpad Core",
+  logo: <img src={icon} alt="Logo"  />,
+  title: "Operaciones de turismo",
 };
 
 const demoTheme = createTheme({
@@ -114,15 +116,17 @@ export default function MainLayout() {
     {
       segment: `${mainRoute}/personal`,
       title: "Gestion de usuarios",
-      icon: <DashboardIcon />,
+      icon: <SupervisedUserCircle />,
       children: [
         {
           segment: "showcase",
           title: "Todos los usuarios",
+          icon:<Group/>
         },
         {
           segment: "new",
           title: "Nuevo Usuario",
+          icon:<PersonAdd/>
         },
       ],
     },

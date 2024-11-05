@@ -10,7 +10,7 @@ interface UserContextType {
   users: User[];
   loading: boolean;
   error: string | null;
-  registerUser: (userData: Partial<User>) => Promise<void>;
+  registerUser: (userData: Partial<User>) => Promise<boolean>;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -46,21 +46,25 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
     fetchUsers();
   }, [token]);
 
-  const registerUser = async (userData: Partial<User>)=> {
+  const registerUser = async (userData: Partial<User>) => {
     try {
       // console.log('userData::: ', userData);
       const newUser = await userService.registerUser(userData);
-      console.log('newUser::: ', newUser);
-
+      console.log("newUser::: ", newUser);
+      if (newUser.statusCode===400) {
+        showToast("error",`${newUser.message}`)
+        // throw new Error("No se registro el user");
+        return false;
+      }
       setUsers((prevUsers) => [...prevUsers, newUser.data]);
       showToast("success", "Usuario creado satisfactoriamente");
       // navigate("/showcase");
-      // return true
+      return true
     } catch (error: unknown) {
       if (error instanceof Error) {
         setError(error.message || "Falla al registrar nuevo Usuario");
       }
-      // return false
+      return false
     }
   };
 

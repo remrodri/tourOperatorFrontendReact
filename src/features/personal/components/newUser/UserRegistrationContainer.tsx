@@ -1,6 +1,6 @@
 import { AnyObject } from "yup";
 import { UseUserContext } from "../../context/UserContext";
-import { UseRoles } from "../../hooks/useRoles";
+// import { UseRoles } from "../../hooks/useRoles";
 import RegisterForm from "./RegisterForm";
 import { showToast } from "../../../../shared/toast";
 import { useNavigate} from "react-router-dom";
@@ -8,17 +8,20 @@ import { useRoleContext } from "../../context/RoleContext";
 
 const UserRegistrationContainer: React.FC = () => {
   const { registerUser, error } = UseUserContext();
-  const { loading, error: roleError } = UseRoles();
+  // const { loading, error: roleError } = UseRoles();
   const navigate = useNavigate();
-  const {roles}=useRoleContext();
+  const {roles,loading,error:roleError}=useRoleContext();
 
 
   const handleRegisterUser = async (userData: AnyObject) => {
     console.log('userData::: ', userData);
     try {
-      await registerUser(userData);
-      showToast("success", "Usuario creado satisfactoriamente");
-      navigate(`../showcase`);
+      const res = await registerUser(userData);
+      if (res) {
+        navigate(`../showcase`);
+      }
+      // showToast("success", "Usuario creado satisfactoriamente");
+      // alert("registrado")
     } catch (error) {
       showToast("error",`${error}`)
     }

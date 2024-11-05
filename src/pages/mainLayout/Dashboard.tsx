@@ -18,6 +18,9 @@ export default function Layout() {
         backgroundSize: "cover",
         // display: "flex",
         // minHeight: "100dvh",
+        // display: "flex",
+        // justifyContent: "center",
+        // alignItems:"center"
       }}
     >
       <PageContainer
@@ -32,7 +35,8 @@ export default function Layout() {
           // },
           display: "flex",
           p: "0",
-          
+          // justifyItems: "center",
+          // alignItems:"center",
           // display: {
           //   xs: "flex",
           //   sm: "flex",

@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box} from "@mui/material";
 // import { User } from "../types/User";
 import React from "react";
 import { UseUserContext } from "../../context/UserContext";
@@ -29,24 +29,24 @@ const personalShowCase: React.FC = () => {
           //   xs: "30rem",
           // },
           height: {
-            xs: "77.6dvh",
-            sm: "79.8dvh",
+            xs: "77dvh",
+            sm: "100%",
           },
         }}
       >
-        <Box
+        {/* <Box
           sx={{
             display: "flex",
             justifyContent:"center"
           }}
         >
           <Typography>Personal Showcase</Typography>
-        </Box>
+        </Box> */}
         <Box
           sx={{
             padding: "1rem",
             height: {
-              xs: "77.6dvh",
+              xs: "76.5dvh",
               // sm: "77dvh",
             },
           }}
@@ -72,7 +72,7 @@ const personalShowCase: React.FC = () => {
               // background:"#fafafa",
               paddingTop: "2rem",
               background: "rgba(0, 0, 0, 0.2)",
-              borderRadius: "16px",
+              borderRadius: "0.5rem",
               boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
               backdropFilter: "blur(5px)",
               border: "1px solid rgba(0, 0, 0, 0.3)",
