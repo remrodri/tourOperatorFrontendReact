@@ -7,11 +7,22 @@ import { AppRouter } from "./routes/AppRouter";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { AuthProvider } from "./context/AuthContext";
 import { UserProvider } from "./features/personal/context/UserContext";
+import { RoleProvider } from "./features/personal/context/RoleContext";
 
 const theme = createTheme({
   typography: {
     fontFamily: "Poppins,sans-serif",
   },
+  // components: {
+  //   MuiContainer: {
+  //     styleOverrides: {
+  //       root: {
+  //         paddingLeft: '1rem',
+  //         paddingRight: '3rem',
+  //       },
+  //     },
+  //   },
+  // },
 });
 
 function App() {
@@ -19,11 +30,13 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-        <AuthProvider>
-      <UserProvider>
-          <RouterProvider router={AppRouter} />
-      </UserProvider>
-        </AuthProvider>
+      <AuthProvider>
+        <RoleProvider>
+          <UserProvider>
+            <RouterProvider router={AppRouter} />
+          </UserProvider>
+        </RoleProvider>
+      </AuthProvider>
     </ThemeProvider>
     // <>
     //   <div>
