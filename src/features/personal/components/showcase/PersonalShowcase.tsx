@@ -19,28 +19,69 @@ const personalShowCase: React.FC = () => {
     <div>
       <Box
         sx={{
-          // display: "flex",
+          display: "flex",
           width: "100%",
           // height:"76.6dvh"
-          // flexDirection: "column",
+          flexDirection: "column",
           // justifyContent: "center",
           // alignItems: "center",
+          // width: {
+          //   xs: "30rem",
+          // },
+          height: {
+            xs: "77.6dvh",
+            sm: "79.8dvh",
+          },
         }}
       >
-        <Typography>Personal Showcase</Typography>
         <Box
           sx={{
             display: "flex",
-            width: "100%",
-            // height:"76.6dvh"
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            justifyContent:"center"
           }}
         >
-          {users.map((user) => (
-            <PersonalCard key={user.id} user={user} />
-          ))}
+          <Typography>Personal Showcase</Typography>
+        </Box>
+        <Box
+          sx={{
+            padding: "1rem",
+            height: {
+              xs: "77.6dvh",
+              // sm: "77dvh",
+            },
+          }}
+        >
+          <Box
+            sx={{
+              boxSizing: "border-box",
+              display: "flex",
+              width: {
+                // xs: "35rem",
+              },
+              height: {
+                xs: "100%",
+                sm:"100%"
+              },
+              // flexDirection: "column",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              // alignItems: "flex-start",
+              alignContent: "flex-start",
+              gap: "1rem",
+              overflowY: "auto",
+              // background:"#fafafa",
+              paddingTop: "2rem",
+              background: "rgba(0, 0, 0, 0.2)",
+              borderRadius: "16px",
+              boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+              backdropFilter: "blur(5px)",
+              border: "1px solid rgba(0, 0, 0, 0.3)",
+            }}
+          >
+            {users.map((user, index) => (
+              <PersonalCard key={index} user={user} />
+            ))}
+          </Box>
         </Box>
       </Box>
     </div>

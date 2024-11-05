@@ -36,13 +36,41 @@ const getUsers = async (
       Authorization: `Bearer ${token}`,
     },
   });
-  console.log('response::: ', response.data);
+  // console.log('response::: ', response.data);
   return response.data;
 };
-const registerUser = async (userData: Partial<User>): Promise<User> => {
-  const response = await axios.post<User>(API_URL, userData);
+const registerUser = async (userData: Partial<User>)
+  : Promise<{
+    statusCode: number;
+    message: string;
+    data: {
+      ci: string;
+      email: string;
+      firstName: string;
+      id: string;
+      lastName: string;
+      phone: string;
+      role: string;
+      firstLogin: boolean;
+    }
+  }> => {
+  // console.log('userData::: ', userData);
+  const response = await axios.post<{
+    statusCode: number;
+    message: string;
+    data: {
+      ci: string;
+      email: string;
+      firstName: string;
+      id: string;
+      lastName: string;
+      phone: string;
+      role: string;
+      firstLogin: boolean;
+    };
+  }>("http://localhost:8080/api/v1/auth/register", userData);
   console.log("response::: ", response);
-  return response.data
+  return response.data;
 };
 export const userService = {
   getUsers,

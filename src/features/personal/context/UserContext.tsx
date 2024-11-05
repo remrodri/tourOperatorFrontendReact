@@ -2,6 +2,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
 import { User } from "../types/User";
 import { userService } from "../service/userService";
+import { showToast } from "../../../shared/toast";
+// import { showToast } from "../../../shared/toast";
+// import { useNavigate } from "react-router-dom";
 
 interface UserContextType {
   users: User[];
@@ -19,6 +22,7 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -42,14 +46,21 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({
     fetchUsers();
   }, [token]);
 
-  const registerUser = async (userData: Partial<User>) => {
+  const registerUser = async (userData: Partial<User>)=> {
     try {
+      // console.log('userData::: ', userData);
       const newUser = await userService.registerUser(userData);
-      setUsers((prevUsers) => [...prevUsers, newUser]);
+      console.log('newUser::: ', newUser);
+
+      setUsers((prevUsers) => [...prevUsers, newUser.data]);
+      showToast("success", "Usuario creado satisfactoriamente");
+      // navigate("/showcase");
+      // return true
     } catch (error: unknown) {
       if (error instanceof Error) {
         setError(error.message || "Falla al registrar nuevo Usuario");
       }
+      // return false
     }
   };
 

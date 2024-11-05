@@ -23,7 +23,7 @@ export const useLogin = () => {
       if (response.user.firstLogin) {
         navigate(`/first-login/${response.user.id}`);
       }
-      if (response.user.role === "administrador") {
+      if (response.user.role === "Administrador") {
         navigate(`/home/${userId}`);
       }
       await AuthService.login(values);

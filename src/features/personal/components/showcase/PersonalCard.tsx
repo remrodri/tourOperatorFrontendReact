@@ -13,7 +13,7 @@ const PersonalCard: React.FC<UserProps> = ({ user }) => {
       sx={{
         // width: "90%",
         width: {
-          xs: "31rem",
+          xs: "30rem",
           sm: "25rem",
         },
         display: "flex",
@@ -33,7 +33,7 @@ const PersonalCard: React.FC<UserProps> = ({ user }) => {
         sx={{
           // width: "25rem",
           display: "flex",
-          height: "4.5rem",
+          // height: "4.5rem",
           alignItems: "center",
           width: "100%",
           justifyContent: "space-between",
@@ -57,7 +57,7 @@ const PersonalCard: React.FC<UserProps> = ({ user }) => {
       <Box
         sx={{
           // width: "25rem",
-          width: "80%",
+          // width: "80%",
           display: "flex",
           gap: "1rem",
           flexDirection: "column",
@@ -69,6 +69,7 @@ const PersonalCard: React.FC<UserProps> = ({ user }) => {
             display: "flex",
             flexDirection: "column",
             gap: "1rem",
+            marginBottom:'1rem',
           }}
         >
           <Typography variant="body1" className="personal-span">

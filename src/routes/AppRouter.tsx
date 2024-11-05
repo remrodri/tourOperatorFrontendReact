@@ -6,9 +6,9 @@ import MainLayout from "../pages/mainLayout/MainLayout";
 // import { useAuth } from "../context/AuthContext";
 import Layout from "../pages/mainLayout/Dashboard";
 import DashboardPage from "../pages/DashboardPage";
-import PersonalPage from "../pages/UsersPage";
+import PersonalPage from "../pages/PersonalPage";
 import personalShowCase from "../features/personal/components/showcase/PersonalShowcase";
-import RegisterForm from "../features/personal/components/newUser/RegisterForm";
+import UserRegistrationContainer from "../features/personal/components/newUser/UserRegistrationContainer";
 
 // const ProtectedRoute = ({ element }: { element: JSX.Element }) => {
 //   const { isAuthenticated } = useAuth();
@@ -72,7 +72,7 @@ export const AppRouter = createBrowserRouter([
               },
               {
                 path: "new",
-                Component: RegisterForm,
+                Component:UserRegistrationContainer
               },
             ],
           },

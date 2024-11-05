@@ -2,7 +2,7 @@
 import { Outlet } from "react-router-dom";
 import { Box } from "@mui/material";
 // import img from "../assets/images/PersonalBackground.webp";
-import "./style/personalPage.css";
+// import "./style/personalPage.css";
 // import { useUserContext } from "../features/personal/context/UserContext";
 
 const PersonalPage: React.FC = () => {
@@ -10,8 +10,16 @@ const PersonalPage: React.FC = () => {
   return (
     <Box
       sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "100%",
+        // minHeight: {
+        //   sm: "75.5dvh",
+        // },
         // paddingRight:"1rem",
-        // m:0
+        // m:'0'
         // minWidth:'90%',
         // maxWidth:'false',
         // minHeight:"78dvh",
